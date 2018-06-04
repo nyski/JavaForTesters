@@ -92,6 +92,9 @@ public class ArraysLesson
    Arrays.fill(liczby,4,10,2);
    assertEquals(liczby[5], 2);
    }
+
+
 }
+
 
 
