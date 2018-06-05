@@ -1,6 +1,7 @@
 package com.javafortesters.junit.chap010Collections;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import domainentites.User;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Collections
@@ -97,8 +100,26 @@ public class Collections
       daysOff.addAll(workdays);
 
       Object [] daysOfWeekArray = workdays.toArray();
+   }
 
+   @Test
+   public void CollectionExercise(){
 
+      Collection<User> users = new <User> ArrayList();
+      Assert.assertTrue(users.isEmpty()); assertEquals(0,users.size());
+      User bob = new User("bob", "Passw0rd");
+      User eris = new User("eris", "Cha0sTime");
+      users.add(bob); users.add(eris);
+      Assert.assertFalse(users.isEmpty()); assertEquals(2,users.size());
+
+      Collection<User> usersNext = new <User> ArrayList();
+      User burt = new User("burt", "wd123s");
+      User tanzou = new User("tanzou", "tibet");
+      usersNext.add(burt); usersNext.add(tanzou);
+
+      usersNext.addAll(users);
+      assertTrue(usersNext.containsAll(users));
+      assertEquals(4,usersNext.size());
 
 
 
